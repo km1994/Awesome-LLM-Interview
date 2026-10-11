@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 .git_book/
+README_Book.md
+README_Awesome.md
+
 
 # C extensions
 *.so
