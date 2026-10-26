@@ -5,7 +5,9 @@ __pycache__/
 .git_book/
 README_Book.md
 README_Awesome.md
-
+docs/
+.git_Awesome/
+.git_Book/
 
 # C extensions
 *.so
@@ -145,3 +147,4 @@ dmypy.json
 cython_debug/
 **/books/*
 **/git_project/*
+.git_Awesome/
