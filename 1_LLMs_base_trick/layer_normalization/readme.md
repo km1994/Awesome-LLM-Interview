@@ -1,6 +1,16 @@
-# Layer normalization 篇
+# 大模型（LLMs）基础面：Layer normalization 篇
 
-- [Layer normalization 篇](#layer-normalization-篇)
+<div align="center">
+
+**大模型面试宝典**
+
+**AIGC / 大模型 / AI Agent 算法岗 · 1000+ 高频面试考点**
+
+[👉 github.com/km1994/AIGC-Interview-Book](https://github.com/km1994/AIGC-Interview-Book)
+
+</div>
+
+- [大模型（LLMs）基础面：Layer normalization 篇](#大模型llms基础面layer-normalization-篇)
   - [Layer normalization-方法篇](#layer-normalization-方法篇)
     - [Layer Norm 篇](#layer-norm-篇)
       - [Layer Norm 的计算公式写一下？](#layer-norm-的计算公式写一下)
@@ -80,7 +90,27 @@ Deep Norm可以缓解爆炸式模型更新的问题，把模型更新限制在�
 
 BLOOM在embedding层后添加layer normalization，有利于提升训练稳定性:但可能会带来很大的性能损失
 
+| 度量 | 用在什么上 | 坑 |
+|---|---|---|
+| 余弦 / 内积 | 稠密语义向量 | 忽略模长；没归一化时内积偏向长向量 |
+| 欧氏距离 L2 | 数值特征、聚类、图像特征 | 各维量纲不同会失真，得先标准化 |
+| 曼哈顿 L1 | 稀疏、高维、离群点多 | 对特征缩放敏感 |
 
+
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'background':'#ffffff','primaryColor':'#E8F0FE','primaryTextColor':'#000000','primaryBorderColor':'#1E3A8A','lineColor':'#333333','fontFamily':'Arial'}}}%%
+flowchart TB
+    Input["对话 / 工具日志 / 文档"] --> Decision{"抽取由谁做"}
+    Decision -->|服务侧 LLM| Server["服务端提炼<br/>质量稳定但烧 token"]
+    Decision -->|宿主 Agent| Host["Agent 侧提炼<br/>服务侧零 LLM<br/>省成本利隐私"]
+    Server --> Store["写入记忆库"]
+    Host --> Store
+    Store --> Async["后台整理<br/>去重合并建图"]
+    Async --> Search["后续检索可见"]
+    classDef mem fill:#E8F0FE,stroke:#1E3A8A,stroke-width:2px,color:#000000;
+    class Input,Decision,Server,Host,Store,Async,Search mem;
+```
 
 
 

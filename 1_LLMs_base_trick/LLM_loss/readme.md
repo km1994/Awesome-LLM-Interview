@@ -1,6 +1,16 @@
-# LLMs 损失函数篇
+# 大模型（LLMs）基础面：LLMs 损失函数篇
 
-- [LLMs 损失函数篇](#llms-损失函数篇)
+<div align="center">
+
+**大模型面试宝典**
+
+**AIGC / 大模型 / AI Agent 算法岗 · 1000+ 高频面试考点**
+
+[👉 github.com/km1994/AIGC-Interview-Book](https://github.com/km1994/AIGC-Interview-Book)
+
+</div>
+
+- [大模型（LLMs）基础面：LLMs 损失函数篇](#大模型llms基础面llms-损失函数篇)
   - [一、介绍一下 KL 散度？](#一介绍一下-kl-散度)
   - [二、交叉熵损失函数写一下，物理意义是什么？](#二交叉熵损失函数写一下物理意义是什么)
   - [三、KL 散度与交叉熵的区别？](#三kl-散度与交叉熵的区别)

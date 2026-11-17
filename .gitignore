@@ -8,6 +8,7 @@ README_Awesome.md
 docs/
 .git_Awesome/
 .git_Book/
+origin.md
 
 # C extensions
 *.so
