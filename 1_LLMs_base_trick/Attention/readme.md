@@ -1,6 +1,16 @@
-# Attention 升级面
+# 大模型（LLMs）基础面：Attention 升级面
 
-- [Attention 升级面](#attention-升级面)
+<div align="center">
+
+**大模型面试宝典**
+
+**AIGC / 大模型 / AI Agent 算法岗 · 1000+ 高频面试考点**
+
+[👉 github.com/km1994/AIGC-Interview-Book](https://github.com/km1994/AIGC-Interview-Book)
+
+</div>
+
+- [大模型（LLMs）基础面：Attention 升级面](#大模型llms基础面attention-升级面)
   - [1 传统 Attention 存在哪些问题？](#1-传统-attention-存在哪些问题)
   - [2 Attention 有哪些 优化方向？](#2-attention-有哪些-优化方向)
   - [3 Attention 变体有哪些？](#3-attention-变体有哪些)
@@ -147,3 +157,5 @@ Paged Attention: 是对kv cache所占空间的分页管理，是一个典型的�
 - Multi-query Attention和Grouped-query Attention是两种不同的注意力机制变种，用于改进和扩展传统的自注意力机制。
 - Multi-query Attention:在Multi-query Attention中，每个查询可以与多个键值对进行交互，从而捕捉更多的上下文信息。这种机制可以提高模型的表达能力和性能，特别是在处理长序列或复杂关系时。
 - Grouped-query Attention:在Grouped-query Attention中，查询被分成多个组，每个组内的查询与对应的键值对进行交互。这种机制可以减少计算复杂度，提高效率，同时仍然保持较好的性能。
+
+

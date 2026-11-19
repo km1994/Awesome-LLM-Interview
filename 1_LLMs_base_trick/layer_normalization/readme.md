@@ -96,21 +96,36 @@ BLOOM在embedding层后添加layer normalization，有利于提升训练稳定�
 | 欧氏距离 L2 | 数值特征、聚类、图像特征 | 各维量纲不同会失真，得先标准化 |
 | 曼哈顿 L1 | 稀疏、高维、离群点多 | 对特征缩放敏感 |
 
+你的值 $x$ 和 $y$ = $P_i$
 
+$$
+P_i = s + y - z
+$$
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'background':'#ffffff','primaryColor':'#E8F0FE','primaryTextColor':'#000000','primaryBorderColor':'#1E3A8A','lineColor':'#333333','fontFamily':'Arial'}}}%%
-flowchart TB
-    Input["对话 / 工具日志 / 文档"] --> Decision{"抽取由谁做"}
-    Decision -->|服务侧 LLM| Server["服务端提炼<br/>质量稳定但烧 token"]
-    Decision -->|宿主 Agent| Host["Agent 侧提炼<br/>服务侧零 LLM<br/>省成本利隐私"]
-    Server --> Store["写入记忆库"]
-    Host --> Store
-    Store --> Async["后台整理<br/>去重合并建图"]
-    Async --> Search["后续检索可见"]
-    classDef mem fill:#E8F0FE,stroke:#1E3A8A,stroke-width:2px,color:#000000;
-    class Input,Decision,Server,Host,Store,Async,Search mem;
+%%{init: {'theme': 'base', 'themeVariables': {'primaryTextColor': '#000000', 'lineColor': '#546E7A', 'fontSize': '14px'}}}%%
+flowchart LR
+    S["记忆形成策略"]
+    subgraph Explicit["显式载体"]
+        direction TB
+        S1["语义摘要化<br>Mem0"]
+        S2["知识蒸馏<br>M3-Agent"]
+        S3["结构化构建<br>GraphRAG/Zep/A-MEM"]
+        S4["隐式表示<br>MemGen"]
+    end
+    subgraph Implicit["隐式内化"]
+        S5["参数内化<br>Toolformer"]
+    end
+    S --> Explicit
+    S --> Implicit
+    classDef root fill:#E3F2FD,stroke:#64B5F6,color:#000000,stroke-width:2px;
+    classDef leaf fill:#E8F5E9,stroke:#81C784,color:#000000,stroke-width:2px;
+    classDef param fill:#FFF8E1,stroke:#FFB300,color:#000000,stroke-width:2px;
+    class S root;
+    class S1,S2,S3,S4 leaf;
+    class S5 param;
 ```
+
 
 
 

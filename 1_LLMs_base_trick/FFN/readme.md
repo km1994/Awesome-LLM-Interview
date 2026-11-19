@@ -1,6 +1,16 @@
-# FFN前馈神经网络篇
+# 大模型（LLMs）基础面：FFN前馈神经网络篇
 
-- [FFN前馈神经网络篇](#ffn前馈神经网络篇)
+<div align="center">
+
+**大模型面试宝典**
+
+**AIGC / 大模型 / AI Agent 算法岗 · 1000+ 高频面试考点**
+
+[👉 github.com/km1994/AIGC-Interview-Book](https://github.com/km1994/AIGC-Interview-Book)
+
+</div>
+
+- [大模型（LLMs）基础面：FFN前馈神经网络篇](#大模型llms基础面ffn前馈神经网络篇)
   - [为什么 需要 FFN前馈神经网络？](#为什么-需要-ffn前馈神经网络)
   - [什么是 FFN前馈神经网络？](#什么是-ffn前馈神经网络)
   - [FFN前馈神经网络 有什么优点？](#ffn前馈神经网络-有什么优点)
@@ -74,7 +84,3 @@ $$
 > 此处原为一张 log-PPL 对比折线图（图片已丢失），结论：SwiGLU 表现最好，其次是 GEGLU / Swish / GELU，ReLU 垫底；因此在 LLaMA、PaLM 等模型中大量采用 SwiGLU。
 
 可以看到SwiGLU最强，所以现在大部分都用这个了。
-
-- 参考：
-  - 冯良骏：昇腾大模型|结构组件-2——ReLU、GeLU、SwiGLU、GeGLU：https://zhuanlan.zhihu.com/p/621058772
-  - 机器之心：谷歌大脑提出新型激活函数Swish惹争议：可直接替换并优于ReLU？（附机器之心测试）：https://zhuanlan.zhihu.com/p/30332306
